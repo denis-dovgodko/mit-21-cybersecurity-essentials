@@ -13,11 +13,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\dendo\\OneDrive\\Рабочий стол\\c#\\mit-21\\lab2\\lab2.1\\lab2.1.csproj",
-      "projectName": "lab2.1",
-      "projectPath": "C:\\Users\\dendo\\OneDrive\\Рабочий стол\\c#\\mit-21\\lab2\\lab2.1\\lab2.1.csproj",
+      "projectUniqueName": "C:\\Users\\dendo\\OneDrive\\Рабочий стол\\c#\\mit-21\\lab2\\lab2.3\\lab2.3.csproj",
+      "projectName": "lab2.3",
+      "projectPath": "C:\\Users\\dendo\\OneDrive\\Рабочий стол\\c#\\mit-21\\lab2\\lab2.3\\lab2.3.csproj",
       "packagesPath": "C:\\Users\\dendo\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\dendo\\OneDrive\\Рабочий стол\\c#\\mit-21\\lab2\\lab2.1\\obj\\",
+      "outputPath": "C:\\Users\\dendo\\OneDrive\\Рабочий стол\\c#\\mit-21\\lab2\\lab2.3\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\dendo\\AppData\\Roaming\\NuGet\\NuGet.Config",
