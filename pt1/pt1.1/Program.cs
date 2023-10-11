@@ -6,7 +6,7 @@ namespace lab1._1
     {
         static void Main(string[] args)
         {
-            Random random = new Random(673);
+            Random random = new Random(67);
             for(int i = 0; i < 8; i++)
             {
                 Console.WriteLine(random.Next(1,10));

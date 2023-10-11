@@ -15,7 +15,7 @@ namespace lab2._1
             int len = decData.Length;
             string data = "Mit21";
             byte[] search = Encoding.UTF8.GetBytes(data);
-            for (int begin = 0; begin < 52; begin++)
+            for (int begin = 0; begin < decData.Length-search.Length; begin++)
             {
                 byte[] decrypMes = new byte[len];
                 byte[] decryptKey = new byte[len];

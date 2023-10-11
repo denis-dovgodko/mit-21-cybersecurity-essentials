@@ -18,7 +18,7 @@ namespace lab2._1
             {
                 encryptMes[i] = (byte)(decData[i] ^ key[i]);
             }
-            File.WriteAllBytes("../../../data.dat", encryptMes);
+            File.WriteAllBytes("//data.dat", encryptMes);
             Console.WriteLine("done");
         }
     }
