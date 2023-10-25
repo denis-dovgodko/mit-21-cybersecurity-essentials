@@ -9,24 +9,57 @@ namespace pt3._4
     {
         static void Main()
         {
-            data list = new data();
-            list = null;
-            data cdata = list;
+            data RootList = new data(); // Корінь(початок) списку
+            data cdata = RootList; // Поточний кінець списку зареєстрованих
+            data logged = null; // Залогінений користувач
             while (true)
             {
                 string s;
+                if (logged != null)
+                {
+                    Console.WriteLine("Now logged: "+ logged.login);
+                }
                 Console.WriteLine("Please, choose necessary command");
                 s = Console.ReadLine();
                 switch (s[0])
                 {
                     case 's':
-                        SignUp(cdata);
-                        break;
-                    case 'l':
-                        LogIn();
+                        data newcdata = SignUp(cdata);
+                        if (logged != null)
+                        {
+                            logged = LogOut(logged);
+                        }
+                        logged = LogIn(cdata);
+                        Console.WriteLine("Success");
+                        cdata = newcdata;
                         break;
                     case 'e':
-                        LogOut();
+                        if (logged != null)
+                        {
+                            logged = LogOut(logged);
+                        }
+                        break;
+                    case 'l':
+                        if (logged != null){
+                            logged = LogOut(logged);
+                        }
+                        Console.WriteLine("Please, enter your login");
+                        string login = Console.ReadLine();
+                        data found = SearchInList(login, RootList);
+                        if(found != null)
+                            Console.WriteLine("Please, enter your password");
+                            string password = Console.ReadLine();
+                            var hash = SHA256.Create();
+                            string GuidHashPassword = Convert.ToBase64String(hash.ComputeHash(Encoding.Unicode.GetBytes(password)));
+                            if (GuidHashPassword == Convert.ToBase64String(found.GetPassword()))
+                            {
+                                Console.WriteLine("Success!");
+                                logged = LogIn(found);
+                            }
+                            else
+                            {
+                                Console.WriteLine("Wrong password!");
+                            }
                         break;
                 }
             }
@@ -35,16 +68,20 @@ namespace pt3._4
         {
             public string login;
             private byte[] hash_password;
-            public bool logged = false;
+            public bool status = false;
             public void AddData(string Login, byte[] password)
             {
                 login = Login;
                 var hash = SHA256.Create();
                 hash_password = hash.ComputeHash(password);
             }
+            public byte[] GetPassword()
+            {
+                return hash_password;
+            }
             public data Next;
         }
-        static void SignUp(data cdata)
+        static data SignUp(data cdata)
         {
             Console.Clear();
             Console.WriteLine("Signing up");
@@ -55,18 +92,33 @@ namespace pt3._4
             cdata.AddData(login, password);
             data nextCounter = new data();
             cdata.Next = nextCounter;
+            return nextCounter;
         }
-        public data logged_link;
-        public bool logged = false;
-        static void LogIn(data currentUser)
+        static data LogIn(data currentUser)
         {
-            LogOut();
-            data logged_link = currentUser;
+            currentUser.status = true;
+            return currentUser;
         }
-        static void LogOut()
+        static data LogOut(data logged)
         {
-            logged_link = null;
+            logged.status = false;
+            Console.WriteLine(logged.login + " logged out");
+            return null;
         }
-        
+        static data SearchInList(string login, data curent)
+        {
+            while (curent != null)
+            {
+                if (curent.login ==  login)
+                {
+                    return curent;
+                }
+                else
+                {
+                    curent = curent.Next;
+                }
+            }
+            return null;
+        }
     }
 }
