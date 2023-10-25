@@ -10,40 +10,40 @@ namespace pt3._3
 {
     internal class Program
     {
-        static void Main(string[] args)
+        static void Main()
         {
-            key password = new key();
+            Key password = new Key();
             password.GenerateKey();
             while (true) {
                 byte[] message = Encoding.Unicode.GetBytes(Console.ReadLine());
                 byte[] hmac = HMAC(message, password);
-                Console.WriteLine(sendForVerification(hmac, message, password));
+                Console.WriteLine(SendForVerification(hmac, message, password));
             }
         }
-        public class key
+        public class Key
         {
-            private int length = 8;
+            public int Length = 8;
             private byte[] randomNumber;
             public void GenerateKey() 
             {
                 var rng = new RNGCryptoServiceProvider();
-                this.randomNumber = new byte[this.length];
+                this.randomNumber = new byte[this.Length];
                 rng.GetBytes(randomNumber);
             }
-            public byte[] get()
+            public byte[] Get()
             { 
                 return randomNumber;
             }
         }
-        static byte[] HMAC(byte[] message, key password)
+        static byte[] HMAC(byte[] message, Key password)
         {
-            byte[] key = password.get();
+            byte[] key = password.Get();
             using (var hmac = new HMACSHA1(key))
             { 
                 return hmac.ComputeHash(message);
             }
         }
-        static bool sendForVerification(byte[] hmac, byte[] message, key password)
+        static bool SendForVerification(byte[] hmac, byte[] message, Key password)
         {
             return hmac.SequenceEqual(HMAC(message, password));
         }

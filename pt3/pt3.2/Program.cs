@@ -7,13 +7,13 @@ namespace pt3._2
 {
     internal class Program
     {
-        static void Main(string[] args)
+        static void Main()
         {
             Guid guid = new Guid("564c8da6-0440-88ec-d453-0bbad57c6036");
-            string password = indexStep(guid);
+            string password = IndexStep(guid);
             Console.WriteLine(password);
         }
-        static string indexStep(Guid guid)
+        static string IndexStep(Guid guid)
         {
             byte[] md5Hashed;
             for (int i = 00000000; i < 100000000; i++)
