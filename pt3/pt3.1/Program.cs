@@ -35,15 +35,16 @@ namespace pt3
         }
         static void Main()
         {
-            string strForHash1 = "Hello World!";
-            string strForHash2 = "Hello World!";
-            string strForHash3 = "Hello world!";
-            StrHash str1 = new StrHash();
-            str1.StrHashing(strForHash1);
-            StrHash str2 = new StrHash();
-            str2.StrHashing(strForHash2);
-            StrHash str3 = new StrHash();
-            str3.StrHashing(strForHash3);
+            string[] strForHash = new string[3];
+            strForHash[0]= "Hello World!";
+            strForHash[1] = "Hello World!";
+            strForHash[2] = "Hello world!";
+            StrHash str = new StrHash();
+            for (int i=0; i<strForHash.Length; i++)
+            {
+                str.StrHashing(strForHash[i]);
+                str.Next = new StrHash();
+            }
         }
         static byte[] ComputeHashMd5(byte[] dataForHash)
         {
