@@ -6,14 +6,16 @@ namespace pt3
 {
     internal class Program
     {
-        public class strHash {
-            public string strForHash;
-            public byte[] md5Hashed;
-            public byte[] sha1Hashed;
-            public byte[] sha256Hashed;
-            public byte[] sha384Hashed;
-            public byte[] sha512Hashed;
-            public strHash(string value) {
+        public class StrHash
+        {
+            private string strForHash;
+            private byte[] md5Hashed;
+            private byte[] sha1Hashed;
+            private byte[] sha256Hashed;
+            private byte[] sha384Hashed;
+            private byte[] sha512Hashed;
+            public void StrHashing(string value)
+            {
                 strForHash = value;
                 md5Hashed = ComputeHashMd5(Encoding.Unicode.GetBytes(strForHash));
                 Guid guid1 = new Guid(md5Hashed);
@@ -29,17 +31,19 @@ namespace pt3
                 Console.WriteLine($"Hash SHA384:{Convert.ToBase64String(sha384Hashed)}");
                 Console.WriteLine($"Hash SHA512:{Convert.ToBase64String(sha512Hashed)}\n");
             }
-            public strHash Next;
+            public StrHash Next;
         }
-        static void Main(string[] args)
+        static void Main()
         {
- 
-             const string strForHash1 = "Hello World!";
-            const string strForHash2 = "Hello World!";
-            const string strForHash3 = "Hello world!";
-            strHash str1 = new strHash(strForHash1);
-            strHash str2 = new strHash(strForHash2);
-            strHash str3 = new strHash(strForHash3);        
+            string strForHash1 = "Hello World!";
+            string strForHash2 = "Hello World!";
+            string strForHash3 = "Hello world!";
+            StrHash str1 = new StrHash();
+            str1.StrHashing(strForHash1);
+            StrHash str2 = new StrHash();
+            str2.StrHashing(strForHash2);
+            StrHash str3 = new StrHash();
+            str3.StrHashing(strForHash3);
         }
         static byte[] ComputeHashMd5(byte[] dataForHash)
         {
@@ -48,28 +52,28 @@ namespace pt3
                 return md5.ComputeHash(dataForHash);
             }
         }
-        public static byte[] ComputeHashSha1(byte[] toBeHashed)
+        static byte[] ComputeHashSha1(byte[] toBeHashed)
         {
             using (var sha256 = SHA1.Create())
             {
                 return sha256.ComputeHash(toBeHashed);
             }
         }
-        public static byte[] ComputeHashSha256(byte[] toBeHashed)
+        static byte[] ComputeHashSha256(byte[] toBeHashed)
         {
             using (var sha256 = SHA256.Create())
             {
                 return sha256.ComputeHash(toBeHashed);
             }
         }
-        public static byte[] ComputeHashSha384(byte[] toBeHashed)
+        static byte[] ComputeHashSha384(byte[] toBeHashed)
         {
             using (var sha256 = SHA384.Create())
             {
                 return sha256.ComputeHash(toBeHashed);
             }
         }
-        public static byte[] ComputeHashSha512(byte[] toBeHashed)
+        static byte[] ComputeHashSha512(byte[] toBeHashed)
         {
             using (var sha256 = SHA512.Create())
             {
