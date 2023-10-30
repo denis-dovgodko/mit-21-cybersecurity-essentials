@@ -1,0 +1,6 @@
+/lab*/.vs
+/lab*/pt*.*/bin
+/lab*/pt*.*/obj
+/lab*(/.vs
+/lab**/pt*.*/bin
+/lab**/pt*.*/obj

@@ -19,6 +19,10 @@ namespace pt3._4
                 {
                     Console.WriteLine("Now logged: "+ logged.login);
                 }
+                Console.WriteLine("Available commands:");
+                Console.WriteLine("s - Sign up");
+                Console.WriteLine("l - Log in");
+                Console.WriteLine("e - Log out");
                 Console.WriteLine("Please, choose necessary command");
                 s = Console.ReadLine();
                 switch (s[0])
