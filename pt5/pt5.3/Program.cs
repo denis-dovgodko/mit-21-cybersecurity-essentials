@@ -54,7 +54,7 @@ namespace pt5._3
                         if (found != null)
                             Console.WriteLine("Please, enter your password");
                         string password = Console.ReadLine();
-                        string GuidHashPassword = Convert.ToBase64String(HashPassword(password, 20 * 10000, found.GetSalt()));
+                        string GuidHashPassword = Convert.ToBase64String(PBKDF2.HashPassword(Encoding.UTF8.GetBytes(password), found.GetSalt(), 20 * 10000));
                         if (GuidHashPassword == Convert.ToBase64String(found.GetPassword()))
                         {
                             Console.WriteLine("Success!");
@@ -78,7 +78,7 @@ namespace pt5._3
             {
                 login = Login;
                 Salt = PBKDF2.GenerateSalt();
-                SaltedHash_password = HashPassword(password, 20*10000, Salt);
+                SaltedHash_password = PBKDF2.HashPassword(Encoding.UTF8.GetBytes(password), Salt, 20 * 10000);
             }
             public byte[] GetPassword()
             {
@@ -147,15 +147,6 @@ namespace pt5._3
                     return rfc2898.GetBytes(20);
                 }
             }
-        }
-        private static byte[] HashPassword(string passwordToHash, int numberOfRounds, byte[] Salt)
-        {
-            var sw = new Stopwatch();
-            sw.Start();
-            var hashedPassword = PBKDF2.HashPassword(Encoding.UTF8.GetBytes(passwordToHash), Salt, numberOfRounds);
-            sw.Stop();
-            Convert.ToBase64String(hashedPassword);
-            return hashedPassword;
         }
     }
 }
