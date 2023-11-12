@@ -12,7 +12,7 @@ namespace pt5._2
         {
             Console.WriteLine("Please, enter password");
             string passwordToHash = Console.ReadLine();
-            for (int i = 20 * 10000; i < 20 * 10000 + (10 * 50000); i += 50000)
+            for (int i = 9 * 10000; i < 9 * 10000 + (10 * 50000); i += 50000)
             {
                 HashPassword(passwordToHash, i);
             }

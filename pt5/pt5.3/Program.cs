@@ -78,7 +78,7 @@ namespace pt5._3
             {
                 login = Login;
                 Salt = PBKDF2.GenerateSalt();
-                SaltedHash_password = PBKDF2.HashPassword(Encoding.UTF8.GetBytes(password), Salt, 20 * 10000);
+                SaltedHash_password = PBKDF2.HashPassword(Encoding.UTF8.GetBytes(password), Salt, 9 * 10000);
             }
             public byte[] GetPassword()
             {
