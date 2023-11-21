@@ -1,0 +1,14 @@
+C:\Users\dendo\OneDrive\Рабочий стол\c#\mit-21\pt8\bin\Debug\netcoreapp3.1\pt8.exe
+C:\Users\dendo\OneDrive\Рабочий стол\c#\mit-21\pt8\bin\Debug\netcoreapp3.1\pt8.deps.json
+C:\Users\dendo\OneDrive\Рабочий стол\c#\mit-21\pt8\bin\Debug\netcoreapp3.1\pt8.runtimeconfig.json
+C:\Users\dendo\OneDrive\Рабочий стол\c#\mit-21\pt8\bin\Debug\netcoreapp3.1\pt8.runtimeconfig.dev.json
+C:\Users\dendo\OneDrive\Рабочий стол\c#\mit-21\pt8\bin\Debug\netcoreapp3.1\pt8.dll
+C:\Users\dendo\OneDrive\Рабочий стол\c#\mit-21\pt8\bin\Debug\netcoreapp3.1\pt8.pdb
+C:\Users\dendo\OneDrive\Рабочий стол\c#\mit-21\pt8\obj\Debug\netcoreapp3.1\pt8.csproj.AssemblyReference.cache
+C:\Users\dendo\OneDrive\Рабочий стол\c#\mit-21\pt8\obj\Debug\netcoreapp3.1\pt8.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\dendo\OneDrive\Рабочий стол\c#\mit-21\pt8\obj\Debug\netcoreapp3.1\pt8.AssemblyInfoInputs.cache
+C:\Users\dendo\OneDrive\Рабочий стол\c#\mit-21\pt8\obj\Debug\netcoreapp3.1\pt8.AssemblyInfo.cs
+C:\Users\dendo\OneDrive\Рабочий стол\c#\mit-21\pt8\obj\Debug\netcoreapp3.1\pt8.csproj.CoreCompileInputs.cache
+C:\Users\dendo\OneDrive\Рабочий стол\c#\mit-21\pt8\obj\Debug\netcoreapp3.1\pt8.dll
+C:\Users\dendo\OneDrive\Рабочий стол\c#\mit-21\pt8\obj\Debug\netcoreapp3.1\pt8.pdb
+C:\Users\dendo\OneDrive\Рабочий стол\c#\mit-21\pt8\obj\Debug\netcoreapp3.1\pt8.genruntimeconfig.cache
