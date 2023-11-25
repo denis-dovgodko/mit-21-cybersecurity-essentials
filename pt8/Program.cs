@@ -11,6 +11,7 @@ namespace pt8
     {
         static void Main(string[] args)
         {
+            File.WriteAllBytes("./messages/recieved/DashkovskiyMessage.dat", Convert.FromBase64String("A7lP5ZQ3CWO00boQhmbkMzRVIdn6+9g7/iJQqH0RjDhpp4i6k7HUKucnI4TsPfezqJDmhtzZ+5Jovq5SRZOdncS2D0EEim+QcZ7qjS+sHVQzdXmfzgxlabiHLmg34VpkqSmf8E99xsG2at8MeByB82YkDycdptKW7U++KHU+coU="));
             _currentPath = "./keys/Dovgodko_RSAPublicKey.xml";
             surname = "Dovgodko";
             if (File.Exists(_currentPath))
@@ -71,7 +72,7 @@ namespace pt8
                         string data = Console.ReadLine();
                         if (File.Exists(_currentPath))
                         {
-                            byte[] cypher = EncryptData(Encoding.Unicode.GetBytes(data));
+                            byte[] cypher = EncryptData(Encoding.UTF8.GetBytes(data));
                             if (surname == "Dovgodko")
                             {
                                 File.WriteAllBytes("./messages/recieved/DovgodkoMessage.dat", cypher);
@@ -97,7 +98,7 @@ namespace pt8
                         try
                         {
                             string path = "./messages/recieved/" + SName+"Message.dat";
-                            Console.WriteLine(Encoding.Unicode.GetString(DecryptData(File.ReadAllBytes(path))));
+                            Console.WriteLine(Encoding.UTF8.GetString(DecryptData(File.ReadAllBytes(path))));
                         }
                         catch
                         {
